@@ -14,6 +14,7 @@ for (var i = 0; i<animals.length; i++){
 }
 
 //add new button
+
 $("#addAnimal").on("click", function(event){
 	event.preventDefault();
 	var newAnimal = $("#animal-input").val().trim();
@@ -35,19 +36,19 @@ function displayGif(){
 		for(var i = 0; i < res.data.length; i++){
 			var newGif = $("<div class ='image'>")
 			var rating = "<p>" + "Rating: " + res.data[i].rating + "</p>"
-			var eachGif = $("<img>");
-			eachGif.addClass("imgGif").attr("src", res.data[i].images.fixed_height_still.url);
-			eachGif.attr("data-state", "still");
-			eachGif.attr("data-still", res.data[i].images.fixed_height_still.url);
-			eachGif.attr("data-animate", res.data[i].images.fixed_height.url);
+			var eachImg = $("<img>");
+			eachImg.addClass("imgGif").attr("src", res.data[i].images.fixed_height_still.url);
+			eachImg.attr("data-state", "still");
+			eachImg.attr("data-still", res.data[i].images.fixed_height_still.url);
+			eachImg.attr("data-animate", res.data[i].images.fixed_height.url);
 			newGif.append(rating);
-			newGif.append(eachGif);
+			newGif.append(eachImg);
 				$("#showGif").append(newGif);
 		}
 	//toggle gif
 		$(".imgGif").on("click", function(){
 
-				var state = $(this).attr("data-state");
+				var state = $(this).attr("data-state")
 			if(state === "still"){
 				$(this).attr("src", $(this).attr("data-animate"));
 				$(this).attr("data-state", "animate");

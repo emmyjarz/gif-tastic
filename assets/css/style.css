@@ -1,0 +1,30 @@
+.btn{
+	background-color: pink;
+	margin: 10px;
+	font-size: 1.5em;
+}
+img{
+	width: 200px;
+	height: 200px;
+}
+.image{
+	float: left;
+	margin: .5%;
+	width: 30%
+
+}
+#showGif{
+	width: 75%;
+	float: left;
+}
+#showForm{
+	float: right;
+	margin-right: 5%;
+
+}
+input{
+	margin: 10px;
+}
+p{
+	margin-bottom: 1em;
+}

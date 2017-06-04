@@ -1,6 +1,6 @@
 var animals = ["dog", "cat", "bird", "parrot", "horse", "dolphin"];
 
-//create button 
+//create button
 function renderBtn(){
 
 	$("#showBtn").empty();
@@ -8,7 +8,7 @@ function renderBtn(){
 for (var i = 0; i<animals.length; i++){
 
 	var newBtn = $("<button>")
-	newBtn.attr("data", animals[i]).text(animals[i]).addClass("btn");
+	newBtn.addClass("clickBtn").attr("data", animals[i]).text(animals[i]);
 	$("#showBtn").append(newBtn);
 }
 }
@@ -31,7 +31,9 @@ function displayGif(){
 		url: queryURL,
 		method: "GET"
 	}).done(function(res){
-			
+
+		console.log(res);
+
 		//show gif from query
 		for(var i = 0; i < res.data.length; i++){
 			var newGif = $("<div class ='image'>")
@@ -57,10 +59,9 @@ function displayGif(){
 				$(this).attr("data-state", "still");
 			}
 		});
-	});	
+	});
 }
-		
-			 
-$(document).on("click", ".btn", displayGif);
-renderBtn();
 
+
+$(document).on("click", ".clickBtn", displayGif);
+renderBtn();

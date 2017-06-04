@@ -1,7 +1,10 @@
-.btn{
+button{
 	background-color: pink;
 	margin: 10px;
 	font-size: 1.5em;
+}
+button:hover{
+	background: yellow;
 }
 img{
 	width: 200px;

@@ -4,6 +4,9 @@ var animals = ["dog", "cat", "bird", "parrot", "horse", "dolphin"];
 function renderBtn(){
 
 	$("#showBtn").empty();
+	$("#animal-input").val("");
+
+
 
 for (var i = 0; i<animals.length; i++){
 
@@ -20,6 +23,8 @@ $("#addAnimal").on("click", function(event){
 	var newAnimal = $("#animal-input").val().trim();
 	animals.push(newAnimal);
 	renderBtn();
+
+
 });
 
 //display
@@ -31,9 +36,6 @@ function displayGif(){
 		url: queryURL,
 		method: "GET"
 	}).done(function(res){
-
-		console.log(res);
-
 		//show gif from query
 		for(var i = 0; i < res.data.length; i++){
 			var newGif = $("<div class ='image'>")
@@ -47,7 +49,8 @@ function displayGif(){
 			newGif.append(eachImg);
 				$("#showGif").append(newGif);
 		}
-	//toggle gif
+
+	//any image got clicked then toggle
 		$(".imgGif").on("click", function(){
 
 				var state = $(this).attr("data-state")
@@ -62,6 +65,6 @@ function displayGif(){
 	});
 }
 
-
+//any button that clicked then displayGif
 $(document).on("click", ".clickBtn", displayGif);
 renderBtn();
